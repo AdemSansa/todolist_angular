@@ -1,0 +1,26 @@
+<div class="example-container">
+    <form [formGroup]="optionss" (submit)="onSubmit()">
+      <div class="margi example-form-fields flex-wrap-reverse gap-3">
+        
+        <mat-form-field>
+          <mat-label>Task title</mat-label>
+          <input formControlName="title" matInput  [(ngModel)]="title" placeholder="Title" />
+        </mat-form-field>
+        
+        <br>
+        
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput  [(ngModel)]="description"  placeholder="Description" />
+        </mat-form-field>
+  
+        <section>
+          <div class="example-button-row">
+            <button mat-stroked-button type="submit">Submit</button>
+          </div>
+        </section>
+  
+      </div>
+    </form>
+  </div>
+  

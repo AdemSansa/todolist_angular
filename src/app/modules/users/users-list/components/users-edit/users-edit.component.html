@@ -1,0 +1,26 @@
+<div class="example-container">
+    <form [formGroup]="optionss" (submit)="onSubmit()">
+      <div class="margi example-form-fields flex-wrap-reverse gap-3">
+        
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput  [(ngModel)]="email" placeholder="Email" />
+        </mat-form-field>
+        
+        <br>
+        
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput  [(ngModel)]="username"  placeholder="Username" />
+        </mat-form-field>
+  
+        <section>
+          <div class="example-button-row">
+            <button mat-stroked-button type="submit">Submit</button>
+          </div>
+        </section>
+  
+      </div>
+    </form>
+  </div>
+  

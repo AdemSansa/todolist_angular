@@ -1,0 +1,65 @@
+<div class="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-700">Edit Feature</h2>
+  
+    <form (ngSubmit)="saveFeature()" [formGroup]="optionss" class="space-y-5">
+      
+      <!-- Code -->
+      <mat-form-field class="w-full">
+        <mat-label>Code</mat-label>
+        <input matInput [(ngModel)]="feature.code" formControlName="code" name="code" required placeholder="Enter feature code" />
+      </mat-form-field>
+  
+      <!-- Title -->
+      <mat-form-field class="w-full">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="feature.title" name="title"  formControlName="title"required placeholder="Enter feature title" />
+      </mat-form-field>
+  
+      <!-- Type -->
+      <mat-form-field class="w-full">
+        <mat-label>Type</mat-label>
+        <input matInput [(ngModel)]="feature.type" name="type" formControlName="type" placeholder="Enter feature type" />
+      </mat-form-field>
+  
+      <!-- Subtitle -->
+      <mat-form-field class="w-full">
+        <mat-label>Subtitle</mat-label>
+        <input matInput [(ngModel)]="feature.subtitle" name="subtitle" formControlName="substitle" placeholder="Enter feature subtitle" />
+      </mat-form-field>
+  
+      <!-- Icon -->
+      <mat-form-field class="w-full">
+        <mat-label>Icon</mat-label>
+        <input matInput [(ngModel)]="feature.icon" name="icon" formControlName="icon"placeholder="Enter feature icon" />
+      </mat-form-field>
+  
+      <!-- Link -->
+      <mat-form-field class="w-full">
+        <mat-label>Link</mat-label>
+        <input matInput [(ngModel)]="feature.link" name="link" formControlName="Link" placeholder="Enter feature link" />
+      </mat-form-field>
+  
+      <!-- Order -->
+      <mat-form-field class="w-full">
+        <mat-label>Order</mat-label>
+        <input matInput type="number" [(ngModel)]="feature.order" formControlName="order" name="order" placeholder="Enter order" />
+      </mat-form-field>
+  
+      <!-- Status -->
+      <mat-form-field class="w-full">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="feature.status" formControlName="status" name="status">
+          <mat-option value="active">Active</mat-option>
+          <mat-option value="inactive">Inactive</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Buttons -->
+      <div class="flex justify-end space-x-4 mt-4">
+        <button mat-button routerLink="/features" class="bg-gray-300 px-4 py-2 rounded-md">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" class="px-4 py-2">Save</button>
+      </div>
+    </form>
+  </div>
+  
+

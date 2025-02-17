@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>
+  {{data.desc}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="cancel()" class="text-red-600">No</button>
+  <button mat-button mat-dialog-close (click)="confirm()" class="text-green-500">Ok</button>
+</mat-dialog-actions>
