@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environement } from '../../../environements/environement';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Feature } from '../models/feature.model';
@@ -12,7 +12,15 @@ export class FeatureService {
 
   http=inject(HttpClient)
 
+
   // ***** signales *****
+
+  features$ = signal<Feature[]>([]);
+
+
+
+
+
 getList(limit : string , page : string , search : string){
   let params = new HttpParams();
   params = params.append('limit', limit);
