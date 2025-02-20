@@ -6,5 +6,5 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync() , provideHttpClient(),provideNativeDateAdapter(), provideAnimationsAsync(), provideAnimationsAsync() ]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync() , provideHttpClient(),provideNativeDateAdapter(), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync() ]
 };
