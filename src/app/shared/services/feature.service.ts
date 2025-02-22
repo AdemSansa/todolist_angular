@@ -20,6 +20,13 @@ export class FeatureService {
 
 
 
+  /* LCRUD */
+  getAllFeatures(){
+    return this.http.get<Feature[]>(
+      this.baseURL
+    )
+  }
+  
 
 getList(limit : string , page : string , search : string){
   let params = new HttpParams();

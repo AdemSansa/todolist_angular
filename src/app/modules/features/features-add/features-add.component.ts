@@ -10,12 +10,12 @@ import {MatLabel} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-features-add',
-  imports: [RouterModule , MatButtonModule,MatFormField,MatIconModule,MatInput,FormsModule,MatOptionModule],
+  imports: [RouterModule ,MatSelectModule, MatButtonModule,MatFormField,MatIconModule,MatInput,FormsModule,MatOptionModule],
 
 
   templateUrl: './features-add.component.html',
