@@ -13,6 +13,10 @@ export class UserService {
   http=inject(HttpClient) 
   // ***** signales ***** 
   /* LCRUD */
+
+  getAllUsers():Observable<User[]>{
+    return this.http.get<User[]>(this.baseURL)
+  }
   getList(limit : string , page : string , search : string):Observable<User[]>{
     let params = new HttpParams();
     params = params.append('limit', limit);

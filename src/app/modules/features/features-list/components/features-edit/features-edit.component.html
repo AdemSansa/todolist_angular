@@ -1,58 +1,79 @@
 <div class="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
     <h2 class="text-2xl font-bold mb-6 text-center text-gray-700">Edit Feature</h2>
   
-    <form (ngSubmit)="saveFeature()" [formGroup]="optionss" class="space-y-5">
+    <form (ngSubmit)="saveFeature()" class="space-y-5">
       
       <!-- Code -->
-      <mat-form-field class="w-full">
-        <mat-label>Code</mat-label>
-        <input matInput [(ngModel)]="feature.code" formControlName="code" name="code" required placeholder="Enter feature code" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Code</label>
+        <mat-form-field class="w-full">
+          <input matInput [(ngModel)]="feature.code" name="code" required placeholder="Enter feature code" />
+        </mat-form-field>
+      </div>
   
       <!-- Title -->
-      <mat-form-field class="w-full">
-        <mat-label>Title</mat-label>
-        <input matInput [(ngModel)]="feature.title" name="title"  formControlName="title"required placeholder="Enter feature title" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Title</label>
+        <mat-form-field class="w-full">
+          <input matInput [(ngModel)]="feature.title" name="title" required placeholder="Enter feature title" />
+        </mat-form-field>
+      </div>
   
       <!-- Type -->
-      <mat-form-field class="w-full">
-        <mat-label>Type</mat-label>
-        <input matInput [(ngModel)]="feature.type" name="type" formControlName="type" placeholder="Enter feature type" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Type</label>
+        <mat-form-field>
+          <mat-label>Choose a type</mat-label>
+          <mat-select [(ngModel)]="feature.type" name="type">
+            <mat-option value="basic" >basic</mat-option>
+            <mat-option value="group">group</mat-option>
+            <mat-option value="collapsable">collapsable</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
   
       <!-- Subtitle -->
-      <mat-form-field class="w-full">
-        <mat-label>Subtitle</mat-label>
-        <input matInput [(ngModel)]="feature.subtitle" name="subtitle" formControlName="substitle" placeholder="Enter feature subtitle" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Subtitle</label>
+        <mat-form-field class="w-full">
+          <input matInput [(ngModel)]="feature.subtitle" name="subtitle" placeholder="Enter feature subtitle" />
+        </mat-form-field>
+      </div>
   
       <!-- Icon -->
-      <mat-form-field class="w-full">
-        <mat-label>Icon</mat-label>
-        <input matInput [(ngModel)]="feature.icon" name="icon" formControlName="icon"placeholder="Enter feature icon" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Icon</label>
+        <mat-form-field class="w-full">
+          <input matInput [(ngModel)]="feature.icon" name="icon" placeholder="Enter feature icon" />
+        </mat-form-field>
+      </div>
   
       <!-- Link -->
-      <mat-form-field class="w-full">
-        <mat-label>Link</mat-label>
-        <input matInput [(ngModel)]="feature.link" name="link" formControlName="Link" placeholder="Enter feature link" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Link</label>
+        <mat-form-field class="w-full">
+          <input matInput [(ngModel)]="feature.link" name="link" placeholder="Enter feature link" />
+        </mat-form-field>
+      </div>
   
       <!-- Order -->
-      <mat-form-field class="w-full">
-        <mat-label>Order</mat-label>
-        <input matInput type="number" [(ngModel)]="feature.order" formControlName="order" name="order" placeholder="Enter order" />
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Order</label>
+        <mat-form-field class="w-full">
+          <input matInput type="number" [(ngModel)]="feature.order" name="order" placeholder="Enter order" />
+        </mat-form-field>
+      </div>
   
       <!-- Status -->
-      <mat-form-field class="w-full">
-        <mat-label>Status</mat-label>
-        <mat-select [(ngModel)]="feature.status" formControlName="status" name="status">
-          <mat-option value="active">Active</mat-option>
-          <mat-option value="inactive">Inactive</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div>
+        <label class="block text-sm font-medium text-gray-600 mb-1">Status</label>
+        <mat-form-field class="w-full">
+          <mat-select [(ngModel)]="feature.status" name="status">
+            <mat-option value="active">Active</mat-option>
+            <mat-option value="inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
   
       <!-- Buttons -->
       <div class="flex justify-end space-x-4 mt-4">

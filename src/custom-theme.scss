@@ -1,22 +1,9 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
+// Import Angular Material Theming
 @use '@angular/material' as mat;
-
-@use '@angular/material/prebuilt-themes/azure-blue.css' as default-theme;
 @use "tailwindcss" as *;
+@use '@angular/material/prebuilt-themes/cyan-orange.css';
 
 
 
-$my-theme: (
-  color: (
-    theme-type: light,
-    primary: #1E40AF,
-    secondary: #9333EA,
-  ),
-);
-
-:root {
-  --primary-color: #{map-get($my-theme, color, primary)};
-  --secondary-color: #{map-get($my-theme, color, secondary)};
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

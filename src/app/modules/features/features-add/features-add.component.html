@@ -22,8 +22,13 @@
       <!-- Type -->
       <div>
         <label class="block text-sm font-medium text-gray-600 mb-1">Type</label>
-        <mat-form-field class="w-full">
-          <input matInput [(ngModel)]="feature.type" name="type" placeholder="Enter feature type" />
+        <mat-form-field>
+          <mat-label>Choose a type</mat-label>
+          <mat-select [(ngModel)]="feature.type" name="type">
+            <mat-option value="basic" >basic</mat-option>
+            <mat-option value="group">group</mat-option>
+            <mat-option value="collapsable">collapsable</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
   

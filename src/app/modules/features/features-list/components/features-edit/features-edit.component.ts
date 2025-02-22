@@ -14,9 +14,10 @@ import { MatOptionModule } from '@angular/material/core';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { MatLabel } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-features-edit',
-  imports:   [ReactiveFormsModule,FormsModule, MatFormField,MatIconModule,MatLabel,MatInput,MatButtonModule,FormsModule,MatOptionModule ,CommonModule],
+  imports:   [ MatSelectModule, MatButtonModule,MatFormField,MatIconModule,MatInput,FormsModule,MatOptionModule],
   templateUrl: './features-edit.component.html',
   styleUrl: './features-edit.component.css'
 })

@@ -5,7 +5,7 @@ import { LoadingComponent } from "../../shared/components/loading/loading.compon
 
 @Component({
   selector: 'app-users',
-  imports: [RouterModule, LoadingComponent],
+  imports: [RouterModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })

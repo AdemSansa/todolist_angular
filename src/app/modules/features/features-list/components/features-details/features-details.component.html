@@ -1,64 +1,68 @@
-<div class="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-    <h2 class="text-2xl font-bold mb-4 text-center text-gray-700">Feature Details</h2>
-  
-    @if(feature){
+<div class="max-w-lg mx-auto mt-10 p-6 bg-gray-900 shadow-lg rounded-lg border border-gray-700">
+  <h2 class="text-2xl font-bold mb-4 text-center text-white">Feature Details</h2>
 
-    
-    <div  class="space-y-4">
+  @if(feature){
+    <div class="space-y-4">
       <div class="flex items-center">
-        <span class="font-semibold w-24">Code:</span>
-        <span>{{ feature.code }}</span>
+        <span class="font-semibold w-24 text-gray-300">Code:</span>
+        <span class="text-white">{{ feature.code }}</span>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Title:</span>
-        <span>{{ feature.title }}</span>
+        <span class="font-semibold w-24 text-gray-300">Title:</span>
+        <span class="text-white">{{ feature.title }}</span>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Type:</span>
-        <span>{{ feature.type }}</span>
+        <span class="font-semibold w-24 text-gray-300">Type:</span>
+        <span class="text-white">{{ feature.type }}</span>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Subtitle:</span>
-        <span>{{ feature.subtitle }}</span>
+        <span class="font-semibold w-24 text-gray-300">Subtitle:</span>
+        <span class="text-white">{{ feature.subtitle }}</span>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Icon:</span>
-        <span>{{ feature.icon }}</span>
+        <span class="font-semibold w-24 text-gray-300">Icon:</span>
+        <span class="text-white">{{ feature.icon }}</span>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Link:</span>
-        <a [href]="feature.link" class="text-blue-500 hover:underline">{{ feature.link }}</a>
+        <span class="font-semibold w-24 text-gray-300">Link:</span>
+        <a [href]="feature.link" class="text-blue-400 hover:underline">{{ feature.link }}</a>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Order:</span>
-        <span>{{ feature.order }}</span>
+        <span class="font-semibold w-24 text-gray-300">Order:</span>
+        <span class="text-white">{{ feature.order }}</span>
       </div>
-  
+
       <div class="flex items-center">
-        <span class="font-semibold w-24">Status:</span>
-        <span [class.text-green-500]="feature.status === 'active'"
-              [class.text-red-500]="feature.status === 'inactive'">
+        <span class="font-semibold w-24 text-gray-300">Status:</span>
+        <span [class.text-green-400]="feature.status === 'active'"
+              [class.text-red-400]="feature.status === 'inactive'">
           {{ feature.status }}
         </span>
       </div>
-  
+
       <!-- Buttons -->
       <div class="flex justify-end space-x-4 mt-4">
-        <button mat-button routerLink="/features" class="bg-gray-300 px-4 py-2 rounded-md">Back</button>
-        <button mat-raised-button color="primary" [routerLink]="['/features', feature._id, 'edit']">Edit</button>
+        <button mat-button routerLink="/features"
+                class="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+          Back
+        </button>
+        <button mat-raised-button color="primary" 
+                [routerLink]="['/features', feature._id, 'edit']"
+                class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-400">
+          Edit
+        </button>
       </div>
     </div>
-  
-}
-    <!-- Loading State -->
-    <ng-template #loading>
-      <p class="text-center text-gray-500">Loading feature details...</p>
-    </ng-template>
-  </div>
-  
+  }
+
+  <!-- Loading State -->
+  <ng-template #loading>
+    <p class="text-center text-gray-400">Loading feature details...</p>
+  </ng-template>
+</div>
