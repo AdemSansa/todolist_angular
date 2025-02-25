@@ -18,6 +18,10 @@
           <mat-icon>list</mat-icon>
           <span> Features</span>
         </a>
+        <a mat-list-item routerLink="/groups" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <mat-icon>list</mat-icon>
+          <span> Groups</span>
+        </a>
         <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
           <mat-icon>dashboard</mat-icon>
           <span> Dashboard</span>

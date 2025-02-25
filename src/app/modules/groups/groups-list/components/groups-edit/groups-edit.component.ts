@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { lastValueFrom } from 'rxjs';
 import { GroupService } from '../../../../../shared/services/groups.service';
 import { FeatureService } from '../../../../../shared/services/feature.service';
 import { Group } from '../../../../../shared/models/groups.model';
 import { Feature } from '../../../../../shared/models/feature.model';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatError } from '@angular/material/form-field';
 @Component({
   selector: 'app-groups-edit',
   templateUrl: './groups-edit.component.html',
+  imports:[ MatInputModule, MatSelectModule, MatFormFieldModule , MatError,ReactiveFormsModule],
   styleUrls: ['./groups-edit.component.css']
 })
 export class GroupsEditComponent implements OnInit {
