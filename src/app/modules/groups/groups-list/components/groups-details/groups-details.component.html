@@ -1,0 +1,35 @@
+<div class="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4 text-center text-gray-700">Group Details</h2>
+  
+    <div *ngIf="group; else loading" class="space-y-4">
+      <div class="flex items-center">
+        <span class="font-semibold w-24">Code:</span>
+        <span>{{ group.code }}</span>
+      </div>
+  
+      <div class="flex items-center">
+        <span class="font-semibold w-24">Label:</span>
+        <span>{{ group.label }}</span>
+      </div>
+  
+      <div class="flex items-center">
+        <span class="font-semibold w-24">Status:</span>
+        <span [class.text-green-500]="group?.status === 'active'"
+              [class.text-red-500]="group?.status === 'inactive'">
+          {{ group.status }}
+        </span>
+      </div>
+  
+      <!-- Buttons -->
+      <div class="flex justify-end space-x-4 mt-4">
+        <button mat-button routerLink="/groups" class="bg-gray-300 px-4 py-2 rounded-md">Back</button>
+        <button mat-raised-button color="primary" [routerLink]="['/groups', group?._id, 'edit']">Edit</button>
+      </div>
+    </div>
+  
+    <!-- Loading State -->
+    <ng-template #loading>
+      <p class="text-center text-gray-500">Loading group details...</p>
+    </ng-template>
+  </div>
+  
