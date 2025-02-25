@@ -56,6 +56,13 @@ export class UserService {
   deleteOne(id:string):Observable<any>{
     return this.http.delete<any>(`${this.baseURL}/${id}`)
   }
+  getUsersGrowth():Observable<any>{
+    return this.http.get<any>(`${this.baseURL}/growth`)
+  }
+  fetchUserGrowth(groupBy: string):Observable<any>{
+    return this.http.get<any[]>(`${this.baseURL}/growth?groupBy=${groupBy}`)
+  }
+  
 
  
 }
