@@ -16,29 +16,9 @@
         <input matInput formControlName="label" placeholder="Enter group label" required />
         <mat-error *ngIf="options.get('label').hasError('required')">Label is required</mat-error>
       </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="px-4 py-2" [disabled]="!options.valid">Add A Feature</button>
   
-      <!-- Description -->
-      <mat-form-field class="w-full">
-        <mat-label>Description</mat-label>
-        <input matInput formControlName="description" placeholder="Enter group description" />
-      </mat-form-field>
-  
-      <!-- Features (Multi-Select) -->
-      <mat-form-field class="w-full">
-        <mat-label>Features</mat-label>
-        <mat-select formControlName="features" multiple>
-          <mat-option *ngFor="let feature of featuresList" [value]="feature._id">{{ feature.title }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <!-- Status -->
-      <mat-form-field class="w-full">
-        <mat-label>Status</mat-label>
-        <mat-select formControlName="status">
-          <mat-option value="active">Active</mat-option>
-          <mat-option value="inactive">Inactive</mat-option>
-        </mat-select>
-      </mat-form-field>
+ 
   
       <!-- Buttons -->
       <div class="flex justify-end space-x-4 mt-4">

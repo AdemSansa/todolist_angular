@@ -1,29 +1,20 @@
 <div class="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg">
-    <h2 class="text-2xl font-bold mb-4">Add New Group</h2>
+    <h2 class="text-2xl font-bold mb-4"  >Add New Group</h2>
   
-    <form (ngSubmit)="saveGroup()">
+    <form [formGroup]="featuresForm" (ngSubmit)="saveGroup()">
       <!-- Code Field -->
       <div class="mb-4">
         <label class="block text-gray-700">Code:</label>
-        <input [(ngModel)]="group.code" name="code" required class="w-full p-2 border rounded" />
+        <input formControlName="code" name="code" required class="w-full p-2 border rounded" />
       </div>
   
       <!-- Label Field -->
       <div class="mb-4">
         <label class="block text-gray-700">Label:</label>
-        <input [(ngModel)]="group.label" name="label" required class="w-full p-2 border rounded" />
+        <input formControlName='label' name="label" required class="w-full p-2 border rounded" />
       </div>
   
-      <!-- Features (Multi-Select) -->
-      <mat-form-field class="w-full mb-4">
-        <mat-label>Features</mat-label>
-        <mat-select [(ngModel)]="group.features" formControlName="features" name="features" multiple>
-          <!-- Map each feature to an option with its _id as value -->
-          <mat-option *ngFor="let feature of featuresList" [value]="feature._id">
-            {{ feature.title }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+  
   
       <!-- Submit Button -->
       <button type="submit" class="bg-blue-500 text-white p-2 rounded">Save</button>
