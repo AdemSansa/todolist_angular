@@ -21,12 +21,8 @@ export class GroupsEditComponent implements OnInit {
   group: Group = {
     code: '',
     label: '',
-    description: '',
-    features: [],
-    status: 'active',
   };
 
-  featuresList: Feature[] = [];
   groupId: string | null = '';
 
   constructor(
@@ -34,14 +30,10 @@ export class GroupsEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private groupService: GroupService,
-    private featureService: FeatureService
   ) {
     this.options = this.fb.group({
       code: ['', Validators.required],
       label: ['', Validators.required],
-      description: [''],
-      features: [[]],
-      status: ['active', Validators.required]
     });
   }
 
@@ -50,7 +42,6 @@ export class GroupsEditComponent implements OnInit {
     if (this.groupId) {
       await this.loadGroupData();
     }
-    await this.loadFeaturesList();
   }
 
   async loadGroupData() {
@@ -60,9 +51,6 @@ export class GroupsEditComponent implements OnInit {
         this.options.setValue({
           code: this.group.code,
           label: this.group.label,
-          description: this.group.description,
-          features: this.group.features,
-          status: this.group.status
         });
       }
     } catch (error) {
@@ -70,13 +58,6 @@ export class GroupsEditComponent implements OnInit {
     }
   }
 
-  async loadFeaturesList() {
-    try {
-      this.featuresList = await lastValueFrom(this.featureService.getList('100', '1', ''));
-    } catch (error) {
-      console.error('Error fetching features list:', error);
-    }
-  }
 
   async saveGroup() {
     if (this.options.valid) {

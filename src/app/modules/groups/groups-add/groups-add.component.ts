@@ -6,7 +6,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { lastValueFrom } from 'rxjs';
 import { FeatureService } from '../../../shared/services/feature.service'; 
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { Feature } from '../../../shared/models/feature.model';  // Adjust path to your model
 import { MatSelectModule } from '@angular/material/select';
@@ -17,17 +17,21 @@ import { CommonModule } from '@angular/common';
   selector: 'app-groups-add',
   templateUrl: './groups-add.component.html',
   styleUrls: ['./groups-add.component.css'],
-  imports: [MatButtonModule,CommonModule,MatSelectModule,ReactiveFormsModule, MatIconModule, FormsModule, MatOptionModule],
+  imports: [MatButtonModule,CommonModule,MatSelectModule, MatIconModule, FormsModule, MatOptionModule ,ReactiveFormsModule],
 })
 export class GroupsAddComponent implements OnInit {
+  featuresForm!: FormGroup;
+
   group = {
     code: '',
     label: '',
-    features: [] as Feature[],  // Store selected features
   };
-  featuresList: Feature[] = [];  // List of available features
+
+ 
 
   constructor(
+
+    private fb: FormBuilder,
     private router: Router,
     private featureService: FeatureService  // Feature service to fetch available features
   ) {
@@ -35,21 +39,25 @@ export class GroupsAddComponent implements OnInit {
 
 
   async ngOnInit(): Promise<void> {
-    await this.loadFeaturesList();
+    this.featuresForm = this.fb.group({
+      code: ['', Validators.required],
+      label: ['', Validators.required],
+
+    });
+   
   }
 
-  async loadFeaturesList() {
-    try {
-      // Fetch the list of available features
-      this.featuresList = await lastValueFrom(this.featureService.getList('100', '1', ''));
-    } catch (error) {
-      console.error('Error fetching features list:', error);
-    }
-  }
+  
+
 
   _GroupService = inject(GroupService);
   async saveGroup() {
     try {
+      this.group.code = this.featuresForm.value.code;
+      this.group.label = this.featuresForm.value.label;
+
+      console.log('Group:', this.group);
+      
       await this._GroupService.addNewOne(this.group).toPromise();
       Swal.fire('Success', 'group created successfully', 'success');
 
